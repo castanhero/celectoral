@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/api/sheets/*"
+  to = "https://opensheet.elk.sh/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
