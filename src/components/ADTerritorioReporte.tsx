@@ -14,10 +14,6 @@ import type { ChartOptions } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
 import { BarChart3, RefreshCw, Percent, Hash } from "lucide-react";
 
-import PandoBarra from "./PandoBarra";
-import CobijaPie from "./CobijaPie";
-import CobijaBarra from "./CobijaBarra";
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -34,10 +30,12 @@ interface ElectoralData {
   mda: number;
   mts: number;
   ngp: number;
+  aupp: number;
   libre: number;
   mnr: number;
   fsutpc: number;
   fri: number;
+  sumate: number;
   blancos: number;
   nulos: number;
   porcentaje: number;
@@ -58,7 +56,7 @@ export default function ChartsSection() {
     setLoading(true);
     setError(null);
 
-    var apiUrl = `https://opensheet.elk.sh/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/GOBERNACION`;
+    var apiUrl = `https://opensheet.elk.sh/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/ADT`;
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) throw new Error("Error al cargar datos");
@@ -78,10 +76,12 @@ export default function ChartsSection() {
           mda: Number(row.MDA) || 0,
           mts: Number(row.MTS) || 0,
           ngp: Number(row.NGP) || 0,
+          aupp: Number(row.AUPP) || 0,
           libre: Number(row.LIBRE) || 0,
           mnr: Number(row.MNR) || 0,
           fsutpc: Number(row.FSUTPC) || 0,
           fri: Number(row.FRI) || 0,
+          sumate: Number(row.SUMATE) || 0,
           blancos: Number(row.BLANCOS) || 0,
           nulos: Number(row.NULOS) || 0,
           porcentaje: Number(row.POR) || 0,
@@ -97,29 +97,33 @@ export default function ChartsSection() {
       );
       setData([
         {
-          municipio: "Cobija",
+          municipio: "Madre de Dios",
           upp: 25,
           mda: 250,
           mts: 50,
           ngp: 50,
+          aupp: 50,
           libre: 350,
           mnr: 50,
           fsutpc: 400,
           fri: 50,
+          sumate: 50,
           blancos: 20,
           nulos: 10,
           porcentaje: 35,
         },
         {
-          municipio: "Sena",
+          municipio: "Nicolás Suárez",
           upp: 25,
           mda: 250,
           mts: 60,
           ngp: 60,
+          aupp: 60,
           libre: 350,
           mnr: 40,
           fsutpc: 400,
           fri: 20,
+          sumate: 50,
           blancos: 20,
           nulos: 10,
           porcentaje: 35,
@@ -142,13 +146,16 @@ export default function ChartsSection() {
           acc.mda += Number(curr.mda) || 0;
           acc.mts += Number(curr.mts) || 0;
           acc.ngp += Number(curr.ngp) || 0;
+          acc.aupp += Number(curr.aupp) || 0;
           acc.libre += Number(curr.libre) || 0;
           acc.mnr += Number(curr.mnr) || 0;
           acc.fsutpc += Number(curr.fsutpc) || 0;
           acc.fri += Number(curr.fri) || 0;
+          acc.sumate += Number(curr.sumate) || 0;
           acc.blancos += Number(curr.blancos) || 0;
           acc.nulos += Number(curr.nulos) || 0;
           acc.porcentaje += Number(curr.porcentaje) || 0;
+
           return acc;
         },
         {
@@ -156,10 +163,12 @@ export default function ChartsSection() {
           mda: 0,
           mts: 0,
           ngp: 0,
+          aupp: 0,
           libre: 0,
           mnr: 0,
           fsutpc: 0,
           fri: 0,
+          sumate: 0,
           blancos: 0,
           nulos: 0,
           porcentaje: 0,
@@ -418,12 +427,12 @@ const pieOption: ChartOptions<"pie"> = {
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-2">
             <BarChart3 className="w-10 h-10 text-[#416972] drop-shadow-sm" />
             <h4 className="text-3xl md:text-5xl font-extrabold text-[#416972] tracking-tight">
-              Control de la Gobernacion
+              Control de la Asambleístas Departamentales por Población
             </h4>
           </div>
           {/* text-lg md:text-xl text-gray-600 mb-8 font-medium */}
           <p className="text-lg md:text-xl text-gray-600 mb-2 font-medium">
-            Resultados — Gobernacion Pando
+            Resultados — Asambleístas Departamentales por Población Pando
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button
@@ -459,137 +468,23 @@ const pieOption: ChartOptions<"pie"> = {
           </div>
         ) : (
           <>
-            {/* Resumen general */}
-            {/*
-            <div className="bg-white/80 rounded-2xl shadow-lg p-8 mb-12">
-              <h3 className="text-2xl font-bold text-[#416972] mb-6 text-center">
-            */}
-            <div className="bg-white/80 rounded-2xl shadow-lg p-6 mb-4">
-              <h3 className="text-2xl font-bold text-[#416972] mb-2 text-center">
-                Resumen General
-                <span className="text-base font-medium text-gray-500">
-                  - Actas computadas:{" "}
-                  <strong className="text-[#416972]">
-                    {porTotal.toFixed(2)}%
-                  </strong>
-                </span>
-              </h3>
-              {/* FSUTPC,LIBRE,UPP,MTS,APB-SUMATE,AUPP,NGP,FRI,MNR,MDA */}
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-5 text-center">
-                <div className="p-6 bg-[#025744]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#025744]">
-                    UPP
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#025744] break-all leading-tight">
-                    {displayValue(totals.upp, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-6 bg-[#fcbf28]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#fcbf28]">
-                    MDA
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#fcbf28] break-all leading-tight">
-                    {displayValue(totals.mda, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-6 bg-[#006d36]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#006d36]">
-                    MTS
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#006d36] break-all leading-tight">
-                    {displayValue(totals.mts, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-6 bg-[#16a7e0]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#16a7e0]">
-                    NGP
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#16a7e0] break-all leading-tight">
-                    {displayValue(totals.ngp, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-4 bg-red-100 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-red-800">
-                    LIBRE
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-red-800 break-all leading-tight">
-                    {displayValue(totals.libre, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-6 bg-[#ff84b0]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#ff84b0]">
-                    MNR
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#ff84b0] break-all leading-tight">
-                    {displayValue(totals.mnr, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-4 bg-[#5c9743]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#5c9743]">
-                    FSUTPC
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#5c9743] break-all leading-tight">
-                    {displayValue(totals.fsutpc, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-6 bg-[#014995]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#014995]">
-                    FRI
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#014995] break-all leading-tight">
-                    {displayValue(totals.fri, totalGeneral)}
-                  </p>
-                </div>
-                <div className="p-4 bg-[#000000]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#000000]">
-                    BLANCO
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#000000] break-all leading-tight">
-                    {displayValue(totals.blancos, totalGeneral)}
-                  </p>
-                </div>
-
-                <div className="p-4 bg-[#7f7c7c]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-gray-800">
-                    NULO
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 break-all leading-tight">
-                    {displayValue(totals.nulos, totalGeneral)}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* TORTA 
-            <CobijaPie
-              totals={totals}
-              totalGeneral={totalGeneral}
-              showPercent={showPercent}
-              chartKey={chartKey}
-            />*/}
-            {/* BARRA */}
-            <PandoBarra
-              totals={totals}
-              totalGeneral={totalGeneral}
-              showPercent={showPercent}
-              chartKey={chartKey}
-            />
-
-            {/* Comparación por provincia */}
+            {/* Asambleístas Departamentales por Población */}
             <h3 className="text-2xl font-bold text-[#416972] mb-8 text-center">
-              Distribucion por Municipios
+              Asambleístas Departamentales por Población
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 gap-8 mb-12">
               {data.map((prov, i) => {
                 const totalProv =
                   prov.upp +
                   prov.mda +
                   prov.mts +
                   prov.ngp +
+                  prov.aupp +
                   prov.libre +
                   prov.mnr +
                   prov.fsutpc +
                   prov.fri +
+                  prov.sumate +
                   prov.blancos +
                   prov.nulos;
                 const values = showPercent
@@ -598,10 +493,12 @@ const pieOption: ChartOptions<"pie"> = {
                       toPercent(prov.mda, totalProv),
                       toPercent(prov.mts, totalProv),
                       toPercent(prov.ngp, totalProv),
+                      toPercent(prov.aupp, totalProv),
                       toPercent(prov.libre, totalProv),
                       toPercent(prov.mnr, totalProv),
                       toPercent(prov.fsutpc, totalProv),
                       toPercent(prov.fri, totalProv),
+                      toPercent(prov.sumate, totalProv),
                       toPercent(prov.blancos, totalProv),
                       toPercent(prov.nulos, totalProv),
                     ]
@@ -610,10 +507,12 @@ const pieOption: ChartOptions<"pie"> = {
                       prov.mda,
                       prov.mts,
                       prov.ngp,
+                      prov.aupp,
                       prov.libre,
                       prov.mnr,
                       prov.fsutpc,
                       prov.fri,
+                      prov.sumate,
                       prov.blancos,
                       prov.nulos,
                     ];
@@ -623,10 +522,12 @@ const pieOption: ChartOptions<"pie"> = {
                     "MDA",
                     "MTS",
                     "NGP",
+                    "AUPP",
                     "LIBRE",
                     "MNR",
                     "FSUTPC",
                     "FRI",
+                    "SUMATE",
                     "BLANCO",
                     "NULO",
                   ],
@@ -639,10 +540,12 @@ const pieOption: ChartOptions<"pie"> = {
                         "#fcbf28",
                         "#006d36",
                         "#16a7e0",
+                        "#663d2b",
                         "#E11D48",
                         "#ff84b0",
                         "#5c9743",
                         "#014995",
+                        "#5e2572",
                         "#dbd2d2",
                         "#777777",
                       ],

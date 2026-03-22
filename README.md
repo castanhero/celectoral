@@ -59,10 +59,16 @@ https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/ALCALDIA
 CONSEJAL
 https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/CONCEJAL
 
-ASAMBLEISTA DEPARTAMENTAL POR TERRITORIO
 
+*********************************************************************************
+https://docs.google.com/spreadsheets/d/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/edit?usp=sharing
+1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE
+GOBERNACION
+*********************************************************************************
+https://opensheet.elk.sh/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/GOBERNACION
+
+ASAMBLEISTA DEPARTAMENTAL POR TERRITORIO
+https://opensheet.elk.sh/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/ADT
 
 ASAMBLEISTA DEPARTAMENTAL POR POBLACION
-https://opensheet.elk.sh/1yxNvAve8xAOJ_LANzfyAmSyu8vBbhyLS5jr76Y1UX3Q/ADP
-
-1yxNvAve8xAOJ_LANzfyAmSyu8vBbhyLS5jr76Y1UX3Q
+https://opensheet.elk.sh/1g-q6SWvak405UbTO7nr8cokwRQF0EjvU9M7ao1kuRSE/ADP
