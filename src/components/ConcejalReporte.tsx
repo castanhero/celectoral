@@ -59,7 +59,7 @@ export default function ChartsSection() {
     setLoading(true);
     setError(null);
 
-    var apiUrl: string = `https://opensheet.elk.sh/11QYOWYLjPAppfJ5uDXPwQyt6nxnwQnKDcSYZh3nffS0/RESULTADO`;
+    var apiUrl: string = `https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/CONCEJAL`;
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) throw new Error("Error al cargar datos");

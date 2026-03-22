@@ -61,7 +61,7 @@ export default function ChartsSection() {
     setLoading(true);
     setError(null);
 
-    var apiUrl = `https://opensheet.elk.sh/1udh_rZsqZz6iLm2fZiZkIpA9XdQynhNA91Cj3NqQUks/RESULTADO`;
+    var apiUrl = `https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/ALCALDIA`;
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) throw new Error("Error al cargar datos");
