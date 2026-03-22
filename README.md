@@ -50,3 +50,19 @@ GOBERNACION
 /* https://docs.google.com/spreadsheets/d/1-XblYY56wt4VtFnUy0AAKes2jpe7XY2ZWIWhy1wo_oI/edit?usp=sharing */
 
 https://opensheet.elk.sh/1-XblYY56wt4VtFnUy0AAKes2jpe7XY2ZWIWhy1wo_oI/RESULTADO
+
+
+
+ALCALDE
+https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/ALCALDIA
+
+CONSEJAL
+https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/CONCEJAL
+
+ASAMBLEISTA DEPARTAMENTAL POR TERRITORIO
+
+
+ASAMBLEISTA DEPARTAMENTAL POR POBLACION
+https://opensheet.elk.sh/1yxNvAve8xAOJ_LANzfyAmSyu8vBbhyLS5jr76Y1UX3Q/ADP
+
+1yxNvAve8xAOJ_LANzfyAmSyu8vBbhyLS5jr76Y1UX3Q
