@@ -12,7 +12,7 @@ export default function Header() {
       {/* Texto centrado y responsivo */}
       <div className="flex flex-col items-center justify-center text-center mt-2 container mx-auto px-4">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
-          Gobierno Autónomo Departamental de Pando
+          Gobierno Autónomo Municipal de Cobija
         </h1>
 
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-2" style={{ color: "white" }}>

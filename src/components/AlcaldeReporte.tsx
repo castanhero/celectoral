@@ -39,8 +39,6 @@ interface ElectoralData {
   fri: number;
   mnr: number;
   mda: number;
-  blancos: number;
-  nulos: number;
   porcentaje: number;
 }
 
@@ -87,8 +85,6 @@ export default function ChartsSection() {
           fri: Number(row.FRI) || 0,
           mnr: Number(row.MNR) || 0,
           mda: Number(row.MDA) || 0,
-          blancos: Number(row.BLANCOS) || 0,
-          nulos: Number(row.NULOS) || 0,
           porcentaje: Number(row.POR) || 0,
         }));
 
@@ -116,8 +112,6 @@ export default function ChartsSection() {
           fri: 50,
           mnr: 50,
           mda: 250,
-          blancos: 20,
-          nulos: 10,
           porcentaje: 35,
         },
         {
@@ -132,8 +126,6 @@ export default function ChartsSection() {
           fri: 50,
           mnr: 50,
           mda: 250,
-          blancos: 20,
-          nulos: 10,
           porcentaje: 35,
         },
       ]);
@@ -182,8 +174,6 @@ export default function ChartsSection() {
           acc.fri += Number(curr.fri) || 0;
           acc.mnr += Number(curr.mnr) || 0;
           acc.mda += Number(curr.mda) || 0;
-          acc.blancos += Number(curr.blancos) || 0;
-          acc.nulos += Number(curr.nulos) || 0;
           return acc;
         },
         {
@@ -197,8 +187,6 @@ export default function ChartsSection() {
           fri: 0,
           mnr: 0,
           mda: 0,
-          blancos: 0,
-          nulos: 0,
         },
       ),
     [data],
@@ -218,9 +206,7 @@ export default function ChartsSection() {
     totals.ngp +
     totals.fri +
     totals.mnr +
-    totals.mda +
-    totals.blancos +
-    totals.nulos,
+    totals.mda,
     [totals],
   );
   /*
@@ -335,9 +321,7 @@ export default function ChartsSection() {
       "NGP",
       "FRI",
       "MNR",
-      "MDA",
-      "BLANCOS",
-      "NULOS",
+      "MDA"
     ],
     datasets: [
       {
@@ -353,8 +337,6 @@ export default function ChartsSection() {
               toPercent(totals.fri, totalGeneral),
               toPercent(totals.mnr, totalGeneral),
               toPercent(totals.mda, totalGeneral),
-              toPercent(totals.blancos, totalGeneral),
-              toPercent(totals.nulos, totalGeneral),
             ]
           : [
               totals.fsutpc,
@@ -367,8 +349,6 @@ export default function ChartsSection() {
               totals.fri,
               totals.mnr,
               totals.mda,
-              totals.blancos,
-              totals.nulos,
             ],
         backgroundColor: [
           "#5c9743",
@@ -381,8 +361,6 @@ export default function ChartsSection() {
           "#014995",
           "#ff84b0",
           "#fcbf28",
-          "#ffffff",
-          "#777777",
         ],
         borderWidth: 3,
         borderColor: "#F9FAFB",
@@ -556,23 +534,6 @@ export default function ChartsSection() {
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#000000]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-[#000000]">
-                    BLANCO
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-[#000000] break-all leading-tight">
-                    {displayValue(totals.blancos, totalGeneral)}
-                  </p>
-                </div>
-
-                <div className="p-4 bg-[#7f7c7c]/10 rounded-xl min-w-0 overflow-hidden">
-                  <h4 className="text-base md:text-lg font-semibold text-gray-800">
-                    NULO
-                  </h4>
-                  <p className="mt-1 text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 break-all leading-tight">
-                    {displayValue(totals.nulos, totalGeneral)}
-                  </p>
-                </div>
               </div>
             </div>
 
@@ -607,9 +568,7 @@ export default function ChartsSection() {
                   prov.ngp +
                   prov.fri +
                   prov.mnr +
-                  prov.mda +
-                  prov.blancos +
-                  prov.nulos;
+                  prov.mda;
                 const values = showPercent
                   ? [
                       toPercent(prov.fsutpc, totalProv),
@@ -622,8 +581,6 @@ export default function ChartsSection() {
                       toPercent(prov.fri, totalProv),
                       toPercent(prov.mnr, totalProv),
                       toPercent(prov.mda, totalProv),
-                      toPercent(prov.blancos, totalProv),
-                      toPercent(prov.nulos, totalProv),
                     ]
                   : [
                       prov.fsutpc,
@@ -636,8 +593,6 @@ export default function ChartsSection() {
                       prov.fri,
                       prov.mnr,
                       prov.mda,
-                      prov.blancos,
-                      prov.nulos,
                     ];
                 const barData = {
                   labels: [
@@ -651,8 +606,6 @@ export default function ChartsSection() {
                     "FRI",
                     "MNR",
                     "MDA",
-                    "BLANCO",
-                    "NULO",
                   ],
                   datasets: [
                     {
@@ -669,8 +622,6 @@ export default function ChartsSection() {
                         "#014995",
                         "#ff84b0",
                         "#fcbf28",
-                        "#dbd2d2",
-                        "#777777",
                       ],
                     },
                   ],

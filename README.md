@@ -37,21 +37,6 @@ npm run deploy
 ********************
 npx -y react-doctor
 
-ALCALDE
-/* https://docs.google.com/spreadsheets/d/1udh_rZsqZz6iLm2fZiZkIpA9XdQynhNA91Cj3NqQUks/edit?usp=sharing */
-https://opensheet.elk.sh/1udh_rZsqZz6iLm2fZiZkIpA9XdQynhNA91Cj3NqQUks/RESULTADO
-
-CONSEJAL
-/* https://docs.google.com/spreadsheets/d/11QYOWYLjPAppfJ5uDXPwQyt6nxnwQnKDcSYZh3nffS0/edit?usp=sharing */
-
-https://opensheet.elk.sh/11QYOWYLjPAppfJ5uDXPwQyt6nxnwQnKDcSYZh3nffS0/RESULTADO
-
-GOBERNACION
-/* https://docs.google.com/spreadsheets/d/1-XblYY56wt4VtFnUy0AAKes2jpe7XY2ZWIWhy1wo_oI/edit?usp=sharing */
-
-https://opensheet.elk.sh/1-XblYY56wt4VtFnUy0AAKes2jpe7XY2ZWIWhy1wo_oI/RESULTADO
-
-
 
 ALCALDE
 https://opensheet.elk.sh/1h1LWh_BTFy129-U5yog02HRXPC9sfOnGJEKM600cX-8/ALCALDIA

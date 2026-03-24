@@ -10,6 +10,7 @@ import AlcaldeReporte from './components/AlcaldeReporte'
 import GobiernacionReporte from './components/GobiernacionReporte'
 import ADPoblacionReporte from './components/ADPoblacionReporte'
 import ADTerritorioReporte from './components/ADTerritorioReporte'
+import CobijaReporteMapa from './components/CobijaReporteMapa'
 
 import Footer from './components/Footer'
 import './App.css'
@@ -22,13 +23,14 @@ function App() {
       
       <Nav onSelect={setSeccion} active={seccion} />
       <main className="max-w-7xl mx-auto px-4 py-8">
-        {seccion === "alcalde"  && <AlcaldeReporte />}
+        {seccion === "alcalde"  && <CobijaReporteMapa />}
         {seccion === "concejal" && <ConcejalReporte />}
+        {/*
         {seccion === "gobernacion" && <GobiernacionReporte />}
-
         {seccion === "asambleistasterritorio" && <ADTerritorioReporte />}
-
         {seccion === "asambleistaspoblacion" && <ADPoblacionReporte />}
+        */}
+
 
       </main>
 
