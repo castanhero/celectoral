@@ -23,7 +23,7 @@ export default function Nav({ onSelect, active }: NavProps) {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <ul className="flex gap-2 overflow-x-auto whitespace-nowrap py-1 lg:justify-center">
+        <ul className="flex gap-2 py-1 lg:justify-center justify-center overflow-x-auto whitespace-nowrap">
           {navItems.map((item) => (
             <li key={item.id} className="shrink-0">
               <button
