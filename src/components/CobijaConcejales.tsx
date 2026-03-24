@@ -5,21 +5,21 @@ import Candidatos from "./Candidatos";
 
 interface Totals {
   fsutpc: number;
-  libre:  number;
-  upp:    number;
-  mts:    number;
+  libre: number;
+  upp: number;
+  mts: number;
   sumate: number;
-  aupp:   number;
-  ngp:    number;
-  fri:    number;
-  mnr:    number;
-  mda:    number;
+  aupp: number;
+  ngp: number;
+  fri: number;
+  mnr: number;
+  mda: number;
   blancos: number;
-  nulos:   number;
+  nulos: number;
 }
 
 interface Props {
-  totals:       Totals;
+  totals: Totals;
   totalGeneral: number;
 }
 
@@ -27,15 +27,15 @@ const TOTAL_ESCANOS = 11;
 
 const PARTIDOS = (totals: Totals) => [
   { nombre: "FSUTPC", votos: totals.fsutpc, color: "#5c9743" },
-  { nombre: "LIBRE",  votos: totals.libre,  color: "#E11D48" },
-  { nombre: "UPP",    votos: totals.upp,    color: "#025744" },
-  { nombre: "MTS",    votos: totals.mts,    color: "#006d36" },
+  { nombre: "LIBRE", votos: totals.libre, color: "#E11D48" },
+  { nombre: "UPP", votos: totals.upp, color: "#025744" },
+  { nombre: "MTS", votos: totals.mts, color: "#006d36" },
   { nombre: "SUMATE", votos: totals.sumate, color: "#5e2572" },
-  { nombre: "AUPP",   votos: totals.aupp,   color: "#663d2b" },
-  { nombre: "NGP",    votos: totals.ngp,    color: "#16a7e0" },
-  { nombre: "FRI",    votos: totals.fri,    color: "#014995" },
-  { nombre: "MNR",    votos: totals.mnr,    color: "#ff84b0" },
-  { nombre: "MDA",    votos: totals.mda,    color: "#fcbf28" },
+  { nombre: "AUPP", votos: totals.aupp, color: "#663d2b" },
+  { nombre: "NGP", votos: totals.ngp, color: "#16a7e0" },
+  { nombre: "FRI", votos: totals.fri, color: "#014995" },
+  { nombre: "MNR", votos: totals.mnr, color: "#ff84b0" },
+  { nombre: "MDA", votos: totals.mda, color: "#fcbf28" },
 ];
 
 export default function CobijaConcejales({ totals, totalGeneral }: Props) {
@@ -131,8 +131,7 @@ export default function CobijaConcejales({ totals, totalGeneral }: Props) {
         </table>
       </div>
 
-<Candidatos />
-
+      <Candidatos />
     </div>
   );
 }
