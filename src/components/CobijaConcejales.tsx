@@ -1,6 +1,7 @@
 // components/CobijaConcejales.tsx
 import { useMemo } from "react";
 import { calcularDHondt } from "../utils/dhonst";
+import Candidatos from "./Candidatos";
 
 interface Totals {
   fsutpc: number;
@@ -129,6 +130,9 @@ export default function CobijaConcejales({ totals, totalGeneral }: Props) {
           </tfoot>
         </table>
       </div>
+
+<Candidatos />
+
     </div>
   );
 }

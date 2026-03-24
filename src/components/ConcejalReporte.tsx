@@ -405,7 +405,8 @@ export default function ChartsSection() {
             <div className="bg-white/80 rounded-2xl shadow-lg p-8 mb-12">
               <h3 className="text-2xl font-bold text-[#416972] mb-6 text-center">
             */}
-            <div className="bg-white/80 rounded-2xl shadow-lg p-6 mb-4">
+            {/*
+                        <div className="bg-white/80 rounded-2xl shadow-lg p-6 mb-4">
               <h3 className="text-2xl font-bold text-[#416972] mb-2 text-center">
                 Resumen General
                 <span className="text-base font-medium text-gray-500">
@@ -415,7 +416,6 @@ export default function ChartsSection() {
                   </strong>
                 </span>
               </h3>
-              {/* FSUTPC,LIBRE,UPP,MTS,APB-SUMATE,AUPP,NGP,FRI,MNR,MDA */}
               <div className="grid grid-cols-2 md:grid-cols-6 gap-5 text-center">
                 <div className="p-4 bg-[#5c9743]/10 rounded-xl min-w-0 overflow-hidden">
                   <h4 className="text-base md:text-lg font-semibold text-[#5c9743]">
@@ -526,6 +526,9 @@ export default function ChartsSection() {
                 </div>
               </div>
             </div>
+            */}
+
+
 
             {/* BARRA */}
             <CobijaBarra
